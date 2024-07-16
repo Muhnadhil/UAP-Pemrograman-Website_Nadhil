@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Program Penjualan Barang</title>
+</head>
+<body>
+  <script>
+    function hitung() {
+        
+      var namaBarang = document.getElementById("namaBarang").value;
+      var hargaBarang = parseFloat(document.getElementById("hargaBarang").value);
+      var jumlahBarang = parseInt(document.getElementById("jumlahBarang").value);
+      var diskon = parseFloat(document.getElementById("diskon").value) / 100;
+
+      var total = hargaBarang * jumlahBarang;
+      var diskonTotal = total * diskon;
+      var bayar = total - diskonTotal;
+
+      document.getElementById("total").value = total.toFixed(2);
+      document.getElementById("diskon").value = (diskon * 100).toFixed(2); 
+      document.getElementById("bayar").value = bayar.toFixed(2);
+    }
+  </script>
+  <form name="fform">
+    <h1>FORM PENJUALAN BARANG</h1>
+    <hr>
+    <pre>
+      Nama Barang   :<input type="text" id="namaBarang">
+      Harga         :<input type="number" id="hargaBarang">
+      Jumlah        :<input type="number" id="jumlahBarang">
+      <hr>
+      Total     :<input type="text" id="total" readonly>  
+      Diskon    :<input type="number" id="diskon"> %
+      Bayar     :<input type="text" id="bayar" readonly> 
+      <hr>
+    </pre>
+    <div class="button">
+      <input type="button" value="Proses" onclick="hitung()">
+      <input type="reset" value="Reset">
+    </div>
+  </form>
+</body>
+</html>
