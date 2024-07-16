@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Form Pembelian Barang</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 300px;
+            margin: 0 auto;
+            border-top: 3px solid black;
+            border-bottom: 3px solid black;
+        }
+
+        th,
+        td {
+            text-align: left;
+        }
+
+        input[type=text],
+        select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid black;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-top: 6px;
+            margin-bottom: 16px;
+        }
+
+        input[type=submit],
+        input[type=reset] {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>FORM PEMBELIAN BARANG</h2>
+    <table>
+        <tr>
+            <th>Nama Barang</th>
+            <td>
+                <select id="namaBarang">
+                    <option value="Monitor">Monitor</option>
+                    <option value="Mouse">Mouse</option>
+                    <option value="Mouse">Keyboard</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th>Jumlah</th>
+            <td><input type="text" id="jumlah" placeholder="Jumlah"></td>
+        </tr>
+        <tr>
+            <th>Harga</th>
+            <td><input type="text" id="harga" placeholder="Harga"></td>
+        </tr>
+        <tr>
+            <th>Total</th>
+            <td><input type="text" id="total" placeholder="Total" readonly></td>
+        </tr>
+    </table>
+    <input type="submit" value="proses" onclick="calculateTotal()">
+    <input type="reset" value="Reset" onclick="resetForm()">
+    <script>
+        function calculateTotal() {
+            const jumlah = parseInt(document.getElementById("jumlah").value);
+            const harga = parseInt(document.getElementById("harga").value);
+            const total = jumlah * harga;
+            document.getElementById("total").value = total;
+        }
+        function resetForm() {
+            document.getElementById("jumlah").value = "";
+            document.getElementById("harga").value = "";
+            document.getElementById("total").value = "";
+        }
+    </script>
+</body>
+</html>
